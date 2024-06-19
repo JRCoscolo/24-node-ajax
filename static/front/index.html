@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Frontend</title>
-    <script>
-        function realizarCalculo() {
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculadora</title>
+        <script>
+        function suma() {
             // Obtener valores de los inputs
             const input1 = document.getElementById('input1').value;
             const input2 = document.getElementById('input2').value;
 
             // Construir la URL para la solicitud al backend
-            const url = `http://localhost:3000/calculo?parametro1=${input1}&parametro2=${input2}`;
+            const url = `http://localhost:3000/suma?parametro1=${input1}&parametro2=${input2}`;
 
             // Realizar la solicitud al backend
             fetch(url)
@@ -19,61 +19,134 @@
                 .then(data => {
                     // Poner el resultado en el campo de output
                     document.getElementById('output1').value = data;
+                    
+                })
+                .catch(error => console.error('Error al realizar la solicitud:', error));
+        }
+
+        function resta() {
+            // Obtener valores de los inputs
+            const input1 = document.getElementById('input1').value;
+            const input2 = document.getElementById('input2').value;
+
+            // Construir la URL para la solicitud al backend
+            const url = `http://localhost:3000/resta?parametro1=${input1}&parametro2=${input2}`;
+
+            // Realizar la solicitud al backend
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    // Poner el resultado en el campo de output
                     document.getElementById('output2').value = data;
+                    
+                })
+                .catch(error => console.error('Error al realizar la solicitud:', error));
+        }
+
+        function multiplica() {
+            // Obtener valores de los inputs
+            const input1 = document.getElementById('input1').value;
+            const input2 = document.getElementById('input2').value;
+
+            // Construir la URL para la solicitud al backend
+            const url = `http://localhost:3000/multi?parametro1=${input1}&parametro2=${input2}`;
+
+            // Realizar la solicitud al backend
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    // Poner el resultado en el campo de output
                     document.getElementById('output3').value = data;
+                    
+                })
+                .catch(error => console.error('Error al realizar la solicitud:', error));
+        }
+
+        function divide() {
+            // Obtener valores de los inputs
+            const input1 = document.getElementById('input1').value;
+            const input2 = document.getElementById('input2').value;
+
+            // Construir la URL para la solicitud al backend
+            const url = `http://localhost:3000/divide?parametro1=${input1}&parametro2=${input2}`;
+
+            // Realizar la solicitud al backend
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    // Poner el resultado en el campo de output
                     document.getElementById('output4').value = data;
+                    
+                })
+                .catch(error => console.error('Error al realizar la solicitud:', error));
+        }
+
+        function potencia() {
+            // Obtener valores de los inputs
+            const input1 = document.getElementById('input1').value;
+            const input2 = document.getElementById('input2').value;
+
+            // Construir la URL para la solicitud al backend
+            const url = `http://localhost:3000/potencia?parametro1=${input1}&parametro2=${input2}`;
+
+            // Realizar la solicitud al backend
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    // Poner el resultado en el campo de output
                     document.getElementById('output5').value = data;
                     
                 })
                 .catch(error => console.error('Error al realizar la solicitud:', error));
         }
+
     </script>
-</head>
-<body>
-    <div>
-        <label for="input1">Input 1:</label>
-        <input type="text" id="input1" name="input1">
-        <label for="input2">Input 2:</label>
-        <input type="text" id="input2" name="input2">
-        <button onclick="realizarCalculo()">Calcular</button>
-        <label for="output">Output 1:</label>
-        <input type="text" id="output1" name="output" readonly>
-    </div>
-    <div>
-        <label for="input1">Input 3:</label>
-        <input type="text" id="input1" name="input3">
-        <label for="input2">Input 4:</label>
-        <input type="text" id="input2" name="input4">
-        <button onclick="realizarCalculo()">Calcular</button>
-        <label for="output">Output 2:</label>
-        <input type="text" id="output2" name="output2" readonly>
-    </div>
-    <div>
-        <label for="input1">Input 5:</label>
-        <input type="text" id="input1" name="input5">
-        <label for="input2">Input 6:</label>
-        <input type="text" id="input2" name="input6">
-        <button onclick="realizarCalculo()">Calcular</button>
-        <label for="output">Output 3:</label>
-        <input type="text" id="output3" name="output3" readonly>
-    </div>
-    <div>
-        <label for="input1">Input 7:</label>
-        <input type="text" id="input1" name="input7">
-        <label for="input2">Input 8:</label>
-        <input type="text" id="input2" name="input8">
-        <button onclick="realizarCalculo()">Calcular</button>
-        <label for="output">output 4:</label>
-        <input type="text" id="output4" name="output4" readonly>
-    </div>
-    <div>
-        <label for="input1">Input 1:</label>
-        <input type="text" id="input1" name="input1">
-        <label for="input2">Input 2:</label>
-        <input type="text" id="input2" name="input2">
-        <button onclick="realizarCalculo()">Calcular</button>
-        <label for="output">Output 5:</label>
-        <input type="text" id="output5" name="output5" readonly>
-    </div>
-</body>
+    </head>
+    <body>
+        <div>
+            <label for="input1">Input 1:</label>
+            <input type="text" id="input1" name="input1">
+            <label for="input2">Input 2:</label>
+            <input type="text" id="input2" name="input2">
+            <button onclick="suma()">Calcular</button>
+            <label for="output">Output 1:</label>
+            <input type="text" id="output1" name="output1" readonly>
+        </div>
+        <div>
+            <label for="input1">Input 3:</label>
+            <input type="text" id="input1" name="input3">
+            <label for="input2">Input 4:</label>
+            <input type="text" id="input2" name="input4">
+            <button onclick="resta()">Calcular</button>
+            <label for="output">Output 2:</label>
+            <input type="text" id="output2" name="output2" readonly>
+        </div>
+        <div>
+            <label for="input1">Input 5:</label>
+            <input type="text" id="input1" name="input5">
+            <label for="input2">Input 6:</label>
+            <input type="text" id="input2" name="input6">
+            <button onclick="multiplica()">Calcular</button>
+            <label for="output">Output 3:</label>
+            <input type="text" id="output3" name="output3" readonly>
+        </div>
+        <div>
+            <label for="input1">Input 7:</label>
+            <input type="text" id="input1" name="input7">
+            <label for="input2">Input 8:</label>
+            <input type="text" id="input2" name="input8">
+            <button onclick="divide()">Calcular</button>
+            <label for="output">Output 4:</label>
+            <input type="text" id="output4" name="output4" readonly>
+        </div>
+        <div>
+            <label for="input1">Input 1:</label>
+            <input type="text" id="input1" name="input1">
+            <label for="input2">Input 2:</label>
+            <input type="text" id="input2" name="input2">
+            <button onclick="potencia()">Calcular</button>
+            <label for="output">Output 5:</label>
+            <input type="text" id="output5" name="output5" readonly>
+        </div>
+    </body>
 </html>
