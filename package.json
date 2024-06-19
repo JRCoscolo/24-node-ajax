@@ -18,5 +18,9 @@
   "homepage": "https://github.com/elMestreAcademy/24-node-ajax#readme",
   "dependencies": {
     "express": "^4.19.2"
-  }
+  },
+  "keywords": [
+    "ajax",
+    "calculadora"
+  ]
 }
