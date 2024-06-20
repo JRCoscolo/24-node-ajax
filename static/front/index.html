@@ -144,7 +144,7 @@
             
 
             // Construir la URL para la solicitud al backend
-            const url = `http://localhost:3000/convbin?parametro1=${input1}`;
+            const url = `http://localhost:3000/convbin?parametro1=${input1}&parametro2=${input2}&parametro3=${input3}`;
 
             // Realizar la solicitud al backend
             fetch(url)
@@ -160,10 +160,10 @@
         function convhex() {
             // Obtener valores de los inputs
             const input1 = document.getElementById('input1').value;
-            
+            const input2 = document.getElementById('input2').value;
 
             // Construir la URL para la solicitud al backend
-            const url = `http://localhost:3000/convhex?parametro1=${input1}`;
+            const url = `http://localhost:3000/convhex?parametro1=${input1}&parametro2=${input2}&parametro3=${input3}`;
 
             // Realizar la solicitud al backend
             fetch(url)
@@ -175,13 +175,32 @@
                 })
                 .catch(error => console.error('Error al realizar la solicitud:', error));
         }
+        function convdic() {
+          // Obtener valores de los inputs
+          const input2 = document.getElementById('input2').value;
+          const input3 = document.getElementById('input3').value;
+
+            // Construir la URL para la solicitud al backend
+            const url = `http://localhost:3000/convdic?parametro1=${input1}&parametro2=${input2}&parametro3=${input3}`;
+
+            // Realizar la solicitud al backend
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    // Poner el resultado en el campo de output
+                    document.getElementById('input1').value = data;
+                    
+                })
+                .catch(error => console.error('Error al realizar la solicitud:', error));
+        }
     </script>
     </head>
     <body>
+
         <div>
             <label for="input1">Número 1:</label>
             <input type="text" id="input1" name="input1">
-            <button onclick="convbin(), convhex()">conv</button>
+            <button onclick="convbin(), convhex(), convdic()">conv</button>
             <label for="input2">Número 2/BIN:</label>
             <input type="text" id="input2" name="input2">
             <label for="input2">Número 3/HEX:</label>
