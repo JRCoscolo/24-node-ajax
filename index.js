@@ -55,13 +55,38 @@ const logaritmo = ("/log", (req, res) => {
     res.send(`${base} log ${potenciador} = ${resultado}`)
 })
 
+const raiz = ("/raiz", (req, res) => {
+    let base = Number(req.query.parametro1)
+    
+    var resultado = Math.sqrt(base)
+
+    res.send(`${base} raiz = ${resultado}`)
+})
+
+const convbin = ("/convbin", (req, res) => {
+    let base = Number(req.query.parametro1)
+    
+    var resultadobin = (base).toString(2)
+      res.send(`${base} BIN ${resultadobin}`)
+   })
+
+const convhex = ("/convhex", (req, res) => {
+    let base = Number(req.query.parametro1)
+    
+        var resultadohex = (base).toString(16)
+
+       res.send(`${base} HEX ${resultadohex}`)
+})
+
 calculadoraBackend.get("/suma", suma)
 calculadoraBackend.get("/resta", resta)
 calculadoraBackend.get("/multi", multi)
 calculadoraBackend.get("/divide", divide)
 calculadoraBackend.get("/potencia", potencia)
 calculadoraBackend.get("/log", logaritmo)
-
+calculadoraBackend.get("/raiz", raiz)
+calculadoraBackend.get("/convbin", convbin)
+calculadoraBackend.get("/convhex", convhex)
 
 calculadoraBackend.listen(port, () => {
     console.log(`Calculadora escuchando en http://localhost:${port}`)

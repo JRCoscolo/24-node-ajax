@@ -100,14 +100,92 @@
                 .catch(error => console.error('Error al realizar la solicitud:', error));
         }
 
+        function logaritmo() {
+            // Obtener valores de los inputs
+            const input1 = document.getElementById('input1').value;
+            const input2 = document.getElementById('input2').value;
+
+            // Construir la URL para la solicitud al backend
+            const url = `http://localhost:3000/log?parametro1=${input1}&parametro2=${input2}`;
+
+            // Realizar la solicitud al backend
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    // Poner el resultado en el campo de output
+                    document.getElementById('output6').value = data;
+                    
+                })
+                .catch(error => console.error('Error al realizar la solicitud:', error));
+        }
+
+        function raiz() {
+            // Obtener valores de los inputs
+            const input1 = document.getElementById('input1').value;
+            
+
+            // Construir la URL para la solicitud al backend
+            const url = `http://localhost:3000/raiz?parametro1=${input1}`;
+
+            // Realizar la solicitud al backend
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    // Poner el resultado en el campo de output
+                    document.getElementById('output7').value = data;
+                    
+                })
+                .catch(error => console.error('Error al realizar la solicitud:', error));
+        }
+
+        function convbin() {
+            // Obtener valores de los inputs
+            const input1 = document.getElementById('input1').value;
+            
+
+            // Construir la URL para la solicitud al backend
+            const url = `http://localhost:3000/convbin?parametro1=${input1}`;
+
+            // Realizar la solicitud al backend
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    // Poner el resultado en el campo de output
+                    document.getElementById('input2').value = data;
+                    
+                })
+                .catch(error => console.error('Error al realizar la solicitud:', error));
+        }
+
+        function convhex() {
+            // Obtener valores de los inputs
+            const input1 = document.getElementById('input1').value;
+            
+
+            // Construir la URL para la solicitud al backend
+            const url = `http://localhost:3000/convhex?parametro1=${input1}`;
+
+            // Realizar la solicitud al backend
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    // Poner el resultado en el campo de output
+                    document.getElementById('output8').value = data;
+                    
+                })
+                .catch(error => console.error('Error al realizar la solicitud:', error));
+        }
     </script>
     </head>
     <body>
         <div>
             <label for="input1">Número 1:</label>
             <input type="text" id="input1" name="input1">
-            <label for="input2">Número 2:</label>
+            <button onclick="convbin(), convhex()">conv</button>
+            <label for="input2">Número 2/BIN:</label>
             <input type="text" id="input2" name="input2">
+            <label for="input2">Número 3/HEX:</label>
+            <input type="text" id="output8" name="conv2">
         </div>
         <div>
             <button onclick="suma()">Suma</button>
@@ -136,6 +214,18 @@
             <button onclick="potencia()">Potencia</button>
             <label for="output">Resultado:</label>
             <input type="text" id="output5" name="output5" readonly>
+        </div>
+        <div>
+
+            <button onclick="logaritmo()">log</button>
+            <label for="output">Resultado:</label>
+            <input type="text" id="output6" name="output6" readonly>
+        </div>
+        <div>
+
+            <button onclick="raiz()">raiz</button>
+            <label for="output">Resultado:</label>
+            <input type="text" id="output7" name="output7" readonly>
         </div>
     </body>
 </html>
