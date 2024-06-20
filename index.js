@@ -47,11 +47,20 @@ const potencia = ("/potencia", (req, res) => {
     res.send(`${base} ^ ${potenciador} = ${resultado}`)
 })
 
+const logaritmo = ("/log", (req, res) => {
+    var base = Number(req.query.parametro1)
+    var potenciador = Number(req.query.parametro2)
+    var resultado = Math.log(base, potenciador)
+
+    res.send(`${base} log ${potenciador} = ${resultado}`)
+})
+
 calculadoraBackend.get("/suma", suma)
 calculadoraBackend.get("/resta", resta)
 calculadoraBackend.get("/multi", multi)
 calculadoraBackend.get("/divide", divide)
 calculadoraBackend.get("/potencia", potencia)
+calculadoraBackend.get("/log", logaritmo)
 
 
 calculadoraBackend.listen(port, () => {
